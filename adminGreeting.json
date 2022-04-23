@@ -1,0 +1,31 @@
+{
+    "morning":[
+        {"Greeting1":"Good morning -N- how are you today"},
+        {"Greeting2":"Rise and Shine -N- whats new"},
+        {"Greeting3":"Top of the morning -N- how are we today"},
+        {"Greeting4":"Hey there mate, you ready because I am"},
+        {"Positive1":"Great to hear that, if you need anything let me know"},
+        {"Positive2":"Amazing, lets get to work"},
+        {"Negative1":"Sorry to hear that, I will try my best to do what I can"},
+        {"Negative2":"Damn That sucks, but it is a new day and lets get the most out of it"},
+        {"OVERRIDE":"Phrases disabled"}
+    ],
+    "evening":[
+        {"Greeting1":"Good afternoon -N- how are you"},
+        {"Greeting2":"Hey -N- how are you"},
+        {"Greeting3":"Lovely day we are having today dont you agree"},
+        {"Positive1":"Awsome, call me out if you need something"},
+        {"Positive2":"Great to hear that, now, lets get to it"},
+        {"Negative":"Damn that sucks, well, I will be hear here if need something"},
+        {"Negative":"Sorry to hear that, lets hope it gets better"},
+        {"OVERRIDE":"Phrases disabled"}
+    ],
+    "night":[
+        {"Greeting1":"Good night -N- late night working are we"},
+        {"Greeting2":"Hello, -N- how was you day today"},
+        {"Positive":"Gotcha, going into night mode"},
+        {"Negative1":"Understood, just try to not overdo it"},
+        {"Negative2":"Damn, well lets to to finnish early to have a nice day tomorrow"},
+        {"OVERRIDE":"Phrases disabled"}
+    ]
+}

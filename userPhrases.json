@@ -1,0 +1,14 @@
+{
+    "morning":"Good morning user, I am Aura nice to meet you",
+    "evening":"Good afternoon user, I am Aura nice to meet you",
+    "night":"Good night user, I am Aura nice to meet you",
+    "Sorry1":"Sorry but I am afraid I cant do that",
+    "Sorry2":"Nope, I cant do that",
+    "Error1":"Woops looks like there was an error",
+    "Error2":"Critical error detected",
+    "Error3":"There apears to have been an error",
+    "Uncertain":"Are you certain about this",
+    "Anavailable":"Sorry but you cant access this feature",
+    "Departure":"Goodbye, untill nexttime",
+    "Accepted":"Sucess"
+}
