@@ -6,16 +6,11 @@ def speak (txt):
     ttsEng.stop()
 
 def getPrefs():
-    data =[]
     engine = pyttsx3.init() # object creation
     rate = engine.getProperty('rate') 
     volume = engine.getProperty('volume')
     voices = engine.getProperty('voices') 
-    data.append(engine)
-    data.append(rate)
-    data.append(volume)
-    data.append(voices)
-    return data
+    return [engine,rate,volume,voices]
 
 def SetVolume(obj,vol):
     obj.setProperty('volume',vol)

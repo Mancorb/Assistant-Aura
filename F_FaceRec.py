@@ -1,12 +1,16 @@
 import cv2
 import os
-import faceRec.Trainer as tr
+import C_Trainer as tr
 from tkinter import filedialog
 
 def picture(loc, name):
-    # define a video capture object
-    capture = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-    #capture.open()
+    try:
+        # define a video capture object
+        capture = cv2.VideoCapture(0)
+        #capture.open()
+    except Exception as e:
+        print(e)
+
     if capture.isOpened() :
         while(True):
 
@@ -24,7 +28,6 @@ def picture(loc, name):
         capture.release(0)
         cv2.destroyAllWindows()
 
-
 def takePicture():
     try:
         picture("images","test")
@@ -37,18 +40,23 @@ def takePicture():
 
 def useFile():
     filename = filedialog.askopenfilename(initialdir = "/",title = "Select a File",
-                                              filetypes = (("png files","*.png*"),("jpg files","*.jpg*")))
+                                        filetypes = (("png files","*.png*"),
+                                        ("jpg files","*.jpg*")))
     return filename
 
 def Authentication ():
     #ID dictionaries
-    res ={"name":"Unknown","confidence":0}
-    name={0:"master"}
+    result=[]
+    name={0:"master",1:"unknown"}
     
-    #Ask if the user wants to use an existing image
-    if str(input("Do you want to use a picture? y/n: ")).lower()=="y":
-        data = useFile()#If so then tkinter will return the route of the image
-    else: data = takePicture() #Otherwise the programm wil take a picture and save it
+    #For testing purposes------------------------------------------------------
+    # #Ask if the user wants to use an existing image
+    # if str(input("Do you want to use a picture? y/n: ")).lower()=="y":
+    #     data = useFile()#If so then tkinter will return the route of the image
+    # else: data = takePicture() #Otherwise the programm wil take a picture and save it
+    #--------------------------------------------------------------------------
+
+    data = takePicture()
     if data == False:#If no image location is returned then the method is terminated
         return False
     try:
@@ -68,17 +76,23 @@ def Authentication ():
         (x,y,w,h)=faces
         roi_grey=grey_img[y:y+h,x:x+w]
         label,confidence=face_rec.predict(roi_grey)
-        print(f"confidence:{confidence}")
-        print(f"label:{label}")
+        #print(f"confidence:{confidence}")
+        #print(f"label:{label}")
 
         predicted_name=name[label]
         #print(predicted_name)
     
     if label == 0:#If the ID found is the same as in the dictionary it will return it
-        res["name"]=predicted_name
-        res["confidence"]=confidence
+        confidence=100-round(confidence)
+        if confidence < 20:result.append("Unknown")
+        else:result.append(predicted_name)
+        
+        result.append(confidence)
         os.system("cls")
-    return res
+        return result
+    os.system("cls")
+    return result
 
 
-print(Authentication())
+#Use Authentification
+#print(Authentication())

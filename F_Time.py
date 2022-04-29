@@ -8,4 +8,5 @@ def getTime ():
     second=timeRes[6]+timeRes[7]
     return [hour,minute,second]
 
-print(getTime())
+def getDate():
+    return datetime.datetime.today().strftime("%A %d")
